@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1c1210" />
+      <stop offset="100%" stop-color="#0d0807" />
+    </linearGradient>
+    <linearGradient id="amGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffd166" />
+      <stop offset="55%" stop-color="#f49d37" />
+      <stop offset="100%" stop-color="#e85d24" />
+    </linearGradient>
+  </defs>
+
+  <!-- Fundo estilo selo/ticket escuro com borda quente -->
+  <rect x="4" y="4" width="120" height="120" rx="26" fill="url(#bgGrad)" stroke="url(#amGrad)" stroke-width="5" />
+
+  <!-- Onda senoidal sutil ao fundo (referência clássica AM) -->
+  <path
+    d="M 12 88 Q 22 72, 32 88 T 52 88 T 72 88 T 92 88 T 116 88"
+    fill="none"
+    stroke="#e85d24"
+    stroke-width="3.5"
+    stroke-linecap="round"
+    opacity="0.45"
+  />
+
+  <!-- Monograma "AM" conectado com traço característico e corte stencil anos 2000 -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Sombra de profundidade -->
+    <path
+      d="M 19 92 L 38 34 L 55 92 M 25 73 L 49 73 M 55 92 L 68 34 L 84 74 L 100 34 L 110 92"
+      stroke="#000000"
+      stroke-width="13"
+      transform="translate(2, 4)"
+      opacity="0.6"
+    />
+    <!-- Traço Principal AM -->
+    <path
+      d="M 19 92 L 38 34 L 55 92 M 25 73 L 49 73 M 55 92 L 68 34 L 84 74 L 100 34 L 110 92"
+      stroke="#f5ede2"
+      stroke-width="11"
+    />
+    <!-- Filete interno âmbar/laranja inspirado na capa Beneath the Boardwalk -->
+    <path
+      d="M 19 92 L 38 34 L 55 92 M 55 92 L 68 34 L 84 74 L 100 34 L 110 92"
+      stroke="url(#amGrad)"
+      stroke-width="3.5"
+    />
+  </g>
+</svg>

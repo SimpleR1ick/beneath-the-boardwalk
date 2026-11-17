@@ -1,0 +1,22 @@
+# Ambientes virtuais Python
+.venv/
+venv/
+ENV/
+env/
+
+# Cache Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Arquivos temporários de sistema e editores
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Arquivos temporários de download bruto
+btb_2023_remaster_full.*

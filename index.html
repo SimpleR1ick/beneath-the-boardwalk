@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beneath the Boardwalk (2004) | Arctic Monkeys — Arquivo &amp; Player</title>
+  <meta name="description"
+    content="Arquivo interativo e player completo de Beneath the Boardwalk (2004), a lendária coletânea de 18 demos do Arctic Monkeys distribuída em CD-Rs em Sheffield." />
+
+  <!-- Inicialização rápida do tema (evita FOUC) -->
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem("btb_theme");
+      document.documentElement.setAttribute("data-bs-theme", savedTheme || "dark");
+    })();
+  </script>
+
+  <!-- Google Fonts: Inter, Oswald & Space Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet" />
+
+  <!-- Bootstrap 5.3.3 CSS & Font Awesome 6 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Ícone da Página (Favicon AM) & Estilos -->
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <!-- Textura sutil anos 2000 -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- CABEÇALHO & NAVBAR SPA -->
+  <header id="header" class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-glass border-bottom">
+      <div class="container">
+        <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="?content=default" data-nav="default">
+          <img src="img/favicon.svg" alt="AM" class="brand-icon-img" width="38" height="38" />
+          <div class="d-flex flex-column lh-1">
+            <span class="brand-title">BENEATH THE BOARDWALK</span>
+            <small class="brand-subtitle">ARCTIC MONKEYS // SHEFFIELD 2004</small>
+          </div>
+        </a>
+
+        <div class="d-flex align-items-center gap-2 order-lg-3">
+          <button type="button" class="lofi-toggle-btn" id="lofiToggleBtn"
+            title="Alterna entre o Remaster de 2023 e a equalização Lo-Fi EQ">
+            <span class="lofi-indicator" id="lofiIndicator"></span>
+            <span class="d-none d-sm-inline">Lo-Fi EQ:</span>
+            <strong id="lofiStateText">OFF</strong>
+          </button>
+
+          <button id="theme-toggle" class="btn btn-outline-secondary rounded-circle theme-btn" type="button"
+            aria-label="Alternar tema claro/escuro" title="Alternar tema claro/escuro">
+            <i id="theme-icon" class="fa-solid fa-sun text-warning"></i>
+          </button>
+
+          <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Alternar navegação">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse order-lg-2" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-1">
+            <li class="nav-item">
+              <a class="nav-link px-3 rounded-pill active" href="?content=default" data-nav="default" aria-current="page">
+                <i class="fa-solid fa-house me-1"></i> Início
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3 rounded-pill" href="?content=faixas" data-nav="faixas">
+                <i class="fa-solid fa-list-ol me-1"></i> As 18 Faixas
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3 rounded-pill" href="?content=comparativo" data-nav="comparativo">
+                <i class="fa-solid fa-sliders me-1"></i> Letras &amp; Comparativo
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3 rounded-pill" href="?content=historia" data-nav="historia">
+                <i class="fa-solid fa-book-open me-1"></i> A História (2004)
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- CONTÊINERES MODULARES DAS 4 ABAS SPA (Renderizados por js/views/*.view.js) -->
+  <main class="py-4">
+    <div id="default" class="dynamic-content active"></div>
+    <div id="faixas" class="dynamic-content"></div>
+    <div id="comparativo" class="dynamic-content"></div>
+    <div id="historia" class="dynamic-content"></div>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="site-footer border-top">
+    <div class="container footer-inner">
+      <div>
+        <strong>BENEATH THE BOARDWALK // ARCTIC MONKEYS FAN ARCHIVE</strong>
+        <p class="mb-0">Projeto tributo e arquivo histórico dedicado às demos de 2004 gravadas no 2Fly Studios, Sheffield
+          (Remaster 2023 por Hollie Taylor).</p>
+      </div>
+      <div class="d-flex gap-3">
+        <a href="?content=default" data-nav="default" class="footer-nav-link">Início</a>
+        <a href="?content=faixas" data-nav="faixas" class="footer-nav-link">18 Faixas</a>
+        <a href="?content=comparativo" data-nav="comparativo" class="footer-nav-link">Comparativo</a>
+        <a href="?content=historia" data-nav="historia" class="footer-nav-link">História</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PLAYER FIXO INFERIOR (CONTÍNUO ENTRE TODAS AS ABAS) -->
+  <aside class="sticky-player" aria-label="Reprodutor de áudio">
+    <audio id="mainAudioElement" preload="metadata"></audio>
+
+    <div class="player-inner">
+      <div class="player-track-info">
+        <div class="mini-disc" id="miniDisc">
+          <div class="mini-disc-hole"></div>
+        </div>
+        <div class="player-meta">
+          <div class="player-title-row">
+            <span class="player-track-num" id="playerTrackNum">#01</span>
+            <strong class="player-track-name" id="playerTrackName">A Certain Romance</strong>
+          </div>
+          <span class="player-track-sub" id="playerTrackSub">Lançada no 1º Álbum • Remaster 2023</span>
+        </div>
+      </div>
+
+      <div class="player-center">
+        <div class="player-buttons">
+          <button type="button" class="ctrl-btn" id="btnShuffle" title="Ordem Aleatória (Shuffle)"
+            aria-label="Ordem Aleatória">
+            <i class="fa-solid fa-shuffle"></i>
+          </button>
+          <button type="button" class="ctrl-btn" id="btnPrev" title="Faixa Anterior" aria-label="Faixa Anterior">
+            <i class="fa-solid fa-backward-step"></i>
+          </button>
+          <button type="button" class="ctrl-btn ctrl-play" id="btnPlayPause" title="Tocar / Pausar"
+            aria-label="Tocar ou Pausar">
+            <i id="iconPlay" class="fa-solid fa-play"></i>
+            <i id="iconPause" class="fa-solid fa-pause hidden"></i>
+          </button>
+          <button type="button" class="ctrl-btn" id="btnNext" title="Próxima Faixa" aria-label="Próxima Faixa">
+            <i class="fa-solid fa-forward-step"></i>
+          </button>
+          <button type="button" class="ctrl-btn" id="btnRepeat" title="Repetir Álbum / Faixa" aria-label="Repetir">
+            <i class="fa-solid fa-repeat"></i>
+          </button>
+        </div>
+
+        <div class="player-progress-row">
+          <span class="time-label" id="currentTimeLabel">0:00</span>
+          <input type="range" id="seekBar" class="seek-slider" min="0" max="100" value="0" step="0.1"
+            aria-label="Progresso da faixa" />
+          <span class="time-label" id="totalTimeLabel">5:21</span>
+        </div>
+      </div>
+
+      <div class="player-right">
+        <button type="button" class="mode-badge mp3-active" id="playerModeBadge"
+          title="Clique para alternar entre o Remaster 2023 e o Modo Lo-Fi EQ">
+          REMASTER 2023
+        </button>
+        <div class="volume-control">
+          <button type="button" class="ctrl-btn" id="btnMute" title="Mudo / Som" aria-label="Alternar som">
+            <i class="fa-solid fa-volume-high" id="volumeIcon"></i>
+          </button>
+          <input type="range" id="volumeBar" class="volume-slider" min="0" max="1" step="0.02" value="0.85"
+            aria-label="Volume" />
+        </div>
+        <a href="?content=comparativo" data-nav="comparativo" class="btn btn-boardwalk-outline btn-xs"
+          id="playerLyricsJumpBtn">
+          Letra &amp; Info
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Toast de Notificação -->
+  <div class="toast-custom hidden" id="toastNotification" role="status" aria-live="polite"></div>
+
+  <!-- Bootstrap 5.3.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  <!-- 1. Camada de Dados (Catálogo de Faixas + Conteúdo Editorial) -->
+  <script src="js/data/tracks.data.js"></script>
+  <script src="js/data/content.data.js"></script>
+
+  <!-- 2. Camada de Estado & Utilitários -->
+  <script src="js/core/state.js"></script>
+
+  <!-- 3. Camada de Views Modulares (Abas SPA) -->
+  <script src="js/views/home.view.js"></script>
+  <script src="js/views/tracks.view.js"></script>
+  <script src="js/views/comparison.view.js"></script>
+  <script src="js/views/history.view.js"></script>
+
+  <!-- 4. Camada de Serviços Core (Tema, Roteador & Motor de Áudio) -->
+  <script src="js/core/theme.js"></script>
+  <script src="js/core/router.js"></script>
+  <script src="js/core/audio-engine.js"></script>
+
+  <!-- 5. Orquestrador Principal -->
+  <script src="js/app.js"></script>
+</body>
+
+</html>
